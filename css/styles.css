@@ -191,7 +191,6 @@ a.custom-card:hover {
 
 
 div > form {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 50px;
   row-gap: 10px;
   background-color: azure;
@@ -199,4 +198,17 @@ div > form {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.containerProduct {
+  text-align: center;
+  background-color: azure;
+  flex-direction: column;
+  display: flex;
+ padding: 80px;
+  justify-content: space-between;
+}
+
+.productList {
+  list-style: none;
 }
