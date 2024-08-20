@@ -188,3 +188,46 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+
+div > form {
+  padding: 50px;
+  row-gap: 10px;
+  background-color: azure;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.containerProduct {
+  text-align: center;
+  background-color: azure;
+  flex-direction: column;
+  display: flex;
+ padding: 80px;
+  justify-content: space-between;
+}
+
+.productList {
+  list-style: none;
+}
+
+#containerProduct {
+  display: block;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+#containerProduct > .imgProduct {
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+#containerProduct > .dataProduct {
+  color: black;
+  display: block;
+  margin-bottom: 20px;
+  text-align: center;
+}
