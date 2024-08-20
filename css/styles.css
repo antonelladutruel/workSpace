@@ -1,3 +1,11 @@
+.alert {
+  display: none; /* Oculto por defecto */
+}
+
+.alert.show {
+  display: block; /* Mostrar cuando se añada la clase 'show' */
+}
+
 .jumbotron,
 .card-body,
 .container,
