@@ -23,3 +23,4 @@ fetch(DATA_URL)
 .then(res => res.json())
 .then(data => showData(data.products))
 .catch(error => console.error())
+

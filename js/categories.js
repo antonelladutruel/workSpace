@@ -141,3 +141,37 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const btnAccess = document.getElementById("btnAccess");
+
+    btnAccess.addEventListener('click', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username && password){
+            // Guardar nombre de usuario y contraseña en LocalStorage si es necesario
+            localStorage.setItem("nombreUsuario", username);
+            localStorage.setItem("contraseña", password);
+
+            // Guardar la sesión en SessionStorage
+            sessionStorage.setItem("sesionIniciada", true);
+
+            window.location.href = "index.html";
+        } else {
+            alert("Debes completar los campos");
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Verificar si la sesión está iniciada en SessionStorage
+    const sesionIniciada = sessionStorage.getItem("sesionIniciada");
+
+    // Si no hay sesión iniciada, redirigir al login
+    if (!sesionIniciada) {
+        window.location.href = "login.html";
+    }
+
+    // Aquí puedes continuar con el resto del código de tu página de productos
+});
