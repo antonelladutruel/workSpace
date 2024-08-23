@@ -13,3 +13,12 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const username = localStorage.getItem("nombreUsuario");
+    const password = localStorage.getItem("contraseña");
+
+    if (!username || !password) {
+        alert("Debes iniciar sesión para acceder a esta página.");
+        window.location.href = "login.html"; 
+    }
+});
