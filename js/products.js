@@ -2,6 +2,8 @@ const DATA_URL = 'https://japceibal.github.io/emercado-api/cats_products/101.jso
 
 const container = document.getElementById("containerProduct");
 
+
+//Función para recorrer Array
 function showData(dataArray) {
     for (const item of dataArray) {
       container.innerHTML += `
@@ -19,8 +21,10 @@ function showData(dataArray) {
     }
   }
 
-fetch(DATA_URL)
+  //Realizamos petición a URL indicada
+fetch(DATA_URL) 
 .then(res => res.json())
 .then(data => showData(data.products))
 .catch(error => console.error())
+
 

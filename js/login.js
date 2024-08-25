@@ -1,3 +1,5 @@
+
+//Evento de click que valida los datos del usuario en LocalStorage y redirecciona a index.html
 document.addEventListener('DOMContentLoaded', function() {
     const btnAccess = document.getElementById("btnAccess");
     
