@@ -5,7 +5,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -18,18 +18,21 @@
 
 <body>
   <main class="mt-5">
-
+    
+    
     <div class="container">
 
-      <form id="entryForm" name="form" method="post">
+
+      <form id="entryForm" name="form" method="post" >
+
         <label for="user">Nombre de usuario:</label>
-        <input id="username" name="user" type="text">
-
+        <input name="user" type="text" id="username">
         <label for="password">Contraseña:</label>
-        <input id="password" name="password_" type="password">
-
+        <input name="password" type="password" id="password">
         <input id="btnAccess" type="submit" value="Ingresar">
-      </form>
+
+      </form>  <!--Punto 1: Creación de form, asignación de id a cada elemento-->
+      
     </div>
   </main>
   <footer class="text-muted">
@@ -37,18 +40,12 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
-      </p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
     </div>
   </footer>
-  
-  <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
-    <p>Los datos ingresados no cumplen con los requisitos solicitados</p>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-  
-  <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/login.js"></script>
+  <script src="js/categories.js"></script>
+
 </body>
 
 </html>
