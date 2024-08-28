@@ -1,3 +1,11 @@
+.alert {
+  display: none; /* Oculto por defecto */
+}
+
+.alert.show {
+  display: block; /* Mostrar cuando se añada la clase 'show' */
+}
+
 .jumbotron,
 .card-body,
 .container,
@@ -231,3 +239,71 @@ div > form {
   margin-bottom: 20px;
   text-align: center;
 }
+
+ /* Estilo para el fondo */
+ #fondo-login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(/img/login/fondo_login.jpg);
+  background-size: cover ;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+/* Contenedor del formulario */
+#container-login {
+  max-width: 350px;
+  position: relative;
+  z-index: 1; /* Asegura que el formulario esté sobre el fondo */
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* El formulario se centra verticalmente */
+}
+
+/*.e-commerce {
+  max-width: 350px;
+}*/
+
+/* Estilo del formulario */
+#entry-form {
+  background-color: rgba(74, 73, 73, 0.509); /* Fondo blanco semitransparente */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para hacer que el formulario destaque */
+  text-align: center;
+}
+
+#chart {
+  width: 20%;
+  margin: 20px;
+}
+
+.textbox input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#btnAccess {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #ff6600;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#btnAccess :hover {
+  background-color: #e65c00;
+}
+
