@@ -9,20 +9,28 @@ const container = document.getElementById("containerProduct");
     for (const item of dataArray) {
       container.innerHTML += `
         <div class="col-md-6 mb-4">
-          <div class="product">
-            <img class="imgProduct img-fluid" src="${item.image}" alt="${item.name}">
-            <p class="dataProduct mt-2">
-              <strong>Nombre:</strong> ${item.name}
-              <br>
-              <strong>Descripción:</strong> ${item.description}
-              <br>
-              <strong>Precio:</strong> ${item.cost}
-              <br>
-              <strong>Cantidad vendidos:</strong> ${item.soldCount}
-            </p>
-          </div>
+          <div class="imgProductCnt">
+              <img class="imgProduct" src=${item.image} alt=${item.name}>
         </div>
-      `;
+        
+        <div class="productName" class="genericProductInfo">
+          ${item.name}
+        </div>
+        
+        <div class="productDescription" class="genericProductInfo">
+          ${item.description}
+        </div>
+
+
+        <div class="productCost" class="genericProductInfo">
+          <p> US$${item.cost} </p>
+        </div>
+
+
+        <div class="productSoldCount" class="genericProductInfo">
+         <p>Cantidad de vendidos ${item.soldCount} </p> 
+        </div>
+      </div>`;
     }
   }
   
