@@ -16,7 +16,7 @@ const container = document.getElementById("containerProduct");
         <div class="productName" class="genericProductInfo">
           ${item.name}
         </div>
-        
+        <div class"productData">
         <div class="productDescription" class="genericProductInfo">
           ${item.description}
         </div>
@@ -29,6 +29,7 @@ const container = document.getElementById("containerProduct");
 
         <div class="productSoldCount" class="genericProductInfo">
          <p>Cantidad de vendidos ${item.soldCount} </p> 
+        </div>
         </div>
       </div>`;
     }
