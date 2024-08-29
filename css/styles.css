@@ -307,3 +307,63 @@ div > form {
   background-color: #e65c00;
 }
 
+
+#containerProduct {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: left;
+  margin-left: 3%;
+}
+.col-md-6 {
+  border-radius:7% ;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+}
+
+#containerProduct .imgProduct {
+  flex: 1 1 45%; 
+  max-width: 100%;
+  padding: 2%;
+  box-sizing: border-box;
+  border-radius: 7%;
+
+}
+
+.productName {
+  color: #E05C09;
+font-family: Arial, Helvetica, sans-serif;
+font-size: 32px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.productDescription {
+  color: #7C7A7A;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px; 
+
+}
+
+.productData > div { 
+  display: flex;
+width: 130px;
+padding-top: 13px;
+flex-direction: column;
+justify-content: flex-end;
+align-items: flex-start;
+gap: 14px;
+}
+
+
+@media (max-width: 800px) {
+  #containerProduct .imgProduct{
+    flex: 1 1 100%; 
+    max-width: 100%;
+  }
+}
+
