@@ -14,6 +14,7 @@
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
     justify-content: space-between;
     padding: 2%; 
+    background-color: white;
   }
   
   /*.col-md-6 :hover {  
@@ -64,7 +65,6 @@
     font-weight: 500;
     justify-content: center;
     text-align: center;
-    background-color: #e05b0995;
     margin:0% 30%;
     border-radius: 15px;
     
@@ -97,9 +97,7 @@
       background-color: rgba(209, 111, 13, 0.243);
       transition: background-color 0.3s ease;
     }
-    .col-md-6 {
-      background-color: rgb(202, 183, 183);
-    }
+
    
     #containerProduct .imgProduct{
       flex: 1 1 100%; 
@@ -110,13 +108,9 @@
   
   @media (max-width: 768px) and (min-width: 568px) {
     .pb-5 {
-      background-color: rgba(189, 205, 192, 0.32);
       transition: background-color 0.3s ease;
     }
-    .col-md-6 {
-      background-color: rgba(24, 105, 192, 0.243);
-      
-    }
+    
     
     #containerProduct .imgProduct{
       flex: 100%; 
@@ -126,16 +120,12 @@
   
   @media (max-width:1366px) and (min-width: 767px) {
     .pb-5 {
-      background-color: #2d50dd95;
       transition: background-color 0.3s ease;
     }
     .productName {
       color: rgba(33, 33, 33, 0.939);
     }
-    .productCost {
-      background-color: rgba(240, 231, 231, 0.568);
-    }
   
   }
   
-  
+  .body1 { background-color:#E05C09;}
