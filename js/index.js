@@ -31,3 +31,13 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    let valor = localStorage.getItem('nombreUsuario');
+    let container = document.getElementsByClassName("localStorageData")[0]; 
+
+        container.textContent = `${valor}`;
+        container.classList.add("nav-link"); 
+    
+});
