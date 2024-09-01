@@ -8,7 +8,7 @@ function showData(dataArray) {
 
   for (const item of dataArray) {
     container.innerHTML += `
-        <div class="col-md-6 col-mb-4">
+        <div class="col-md-6 col-mb-4 mb-4">
           <div class="imgProductCnt">
               <img class="imgProduct" src=${item.image} alt=${item.name}>
           </div>

@@ -4,9 +4,10 @@
 #containerProduct {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: left;
     margin-left: 3%;
+    gap: 20 px;
   }
 
   .col-md-6 {
@@ -15,7 +16,15 @@
     justify-content: space-between;
     padding: 2%; 
     background-color: white;
+    margin-bottom: 20px;
+    flex: 1 1 calc(50% - 20px); 
+    box-sizing: border-box;
+    flex-grow: 0;
   }
+
+  .col-md-6:nth-child(odd) {
+    margin-right: 20px; 
+}
   
   .col-md-6:hover {  
     position: relative;
