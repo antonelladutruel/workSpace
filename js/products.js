@@ -1,19 +1,7 @@
-
-/*function setCatID(id) {
-  localStorage.setItem("catID", id);
-  const catId = localStorage.getItem('catID');
-  console.log(catId);
-  window.location = "products.html"
-};*/
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
 
 
   const catId = localStorage.getItem('catID');
-  
-  
   const DATA_URL = `https://japceibal.github.io/emercado-api/cats_products/${catId}.json`;
   const container = document.getElementById("containerProduct");
 
