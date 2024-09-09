@@ -1,13 +1,38 @@
-const DATA_URL = 'https://japceibal.github.io/emercado-api/cats_products/101.json'
 
-const container = document.getElementById("containerProduct");
+/*function setCatID(id) {
+  localStorage.setItem("catID", id);
+  const catId = localStorage.getItem('catID');
+  console.log(catId);
+  window.location = "products.html"
+};*/
 
-function showData(dataArray) {
-  const container = document.getElementById('containerProduct');
-  container.innerHTML = '';
 
-  for (const item of dataArray) {
-    container.innerHTML += `
+
+document.addEventListener('DOMContentLoaded', function () {
+
+
+  const catId = localStorage.getItem('catID');
+  
+  
+  const DATA_URL = `https://japceibal.github.io/emercado-api/cats_products/${catId}.json`;
+  const container = document.getElementById("containerProduct");
+
+
+  function showData(dataArray) {
+
+    if (dataArray.length === 0) {
+      const emptyCat = document.createElement('h3');
+      emptyCat.classList.add("m-3");
+      emptyCat.textContent = 'No se encontraron productos para esta categoría';
+
+      container.appendChild(emptyCat);
+
+    } else {
+
+      container.innerHTML = '';
+
+      for (const item of dataArray) {
+        container.innerHTML += `
         <div class="col-md-6 col-mb-4 mb-4">
           <div class="imgProductCnt">
               <img class="imgProduct" src=${item.image} alt=${item.name}>
@@ -17,7 +42,7 @@ function showData(dataArray) {
           ${item.name}
           </div>
 
-          <div class"productData">
+          <div class="productData">
             <div class="productDescription" class="genericProductInfo">
               ${item.description}
             </div>
@@ -31,11 +56,15 @@ function showData(dataArray) {
             </div>
           </div>
         </div>`;
+      }
+    }
   }
-}
 
 
-fetch(DATA_URL)
-  .then(res => res.json())
-  .then(data => showData(data.products))
-  .catch(error => console.error())
+  fetch(DATA_URL)
+    .then(res => res.json())
+    .then(data => showData(data.products))
+    .catch(error => console.error());
+
+},
+);
