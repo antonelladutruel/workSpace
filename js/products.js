@@ -139,12 +139,11 @@ document.getElementById("rangeFilterCount").addEventListener("click", function()
 
 document.getElementById("productSearch").addEventListener("input", function() {
     const query = this.value.toLowerCase();
-    const filteredProducts = currentProductsArray.filter(product =>
+    const currentProductsArray = currentProductsArray.filter(product =>
         product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query)
     );
-    showProductsList(filteredProducts);
+    showProductsList(currentProductsArray);
 });
-
 
     fetch(DATA_URL)
         .then(res => res.json())
