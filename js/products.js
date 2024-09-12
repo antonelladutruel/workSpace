@@ -137,6 +137,41 @@ document.getElementById("rangeFilterCount").addEventListener("click", function()
     showProductsList();
 });
 
+document.getElementById("productSearch").addEventListener("input", function() {
+    const query = this.value.toLowerCase();
+    const filteredProducts = currentProductsArray.filter(product =>
+        product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query)
+    );
+    showProductsList(filteredProducts);
+});
+
+function showProductsList(productsArray = currentProductsArray) {
+    let htmlContentToAppend = "";
+    container.innerHTML = '';
+
+    productsArray.forEach(product => {
+        htmlContentToAppend += `
+            <div class="col-md-6 col-mb-4 mb-4">
+                <div class="imgProductCnt">
+                    <img class="imgProduct" src="${product.image}" alt="${product.name}">
+                </div>
+                <div class="productName">${product.name}</div>
+                <div class="productData">
+                    <div class="productDescription">${product.description}</div>
+                    <div class="productCost"><p><span class="price">US$ </span>${product.cost}</p></div>
+                    <div class="productSoldCount"><p>Cantidad de vendidos: ${product.soldCount}</p></div>
+                </div>
+            </div>
+            `
+        ;
+    });
+
+    container.innerHTML = htmlContentToAppend;
+}
+
+
+
+
 
     fetch(DATA_URL)
         .then(res => res.json())

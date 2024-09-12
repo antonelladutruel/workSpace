@@ -142,17 +142,3 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    const currentPath = window.location.pathname;
-    const loginPagePath = "/login.html";  
-
-    if (currentPath !== loginPagePath) {
-        const username = localStorage.getItem("nombreUsuario");
-        const password = localStorage.getItem("contraseña");
-
-    if (!username || !password) {
-            alert("Debes iniciar sesión para acceder a esta página.");
-            window.location.href = "login.html"; 
-        }
-    }
-});
