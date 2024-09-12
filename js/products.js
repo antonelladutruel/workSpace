@@ -142,7 +142,7 @@ document.getElementById("productSearch").addEventListener("input", function() {
     const currentProductsArray = currentProductsArray.filter(product =>
         product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query)
     );
-    showProductsList(currentProductsArray);
+    showProductsList();
 });
 
     fetch(DATA_URL)
