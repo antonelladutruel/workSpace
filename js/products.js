@@ -36,7 +36,7 @@ function sortProducts(criteria, array) {
     return result;
 }
 
-function showProductsList() {
+function showProductsList(currentProductsArray) {
     let htmlContentToAppend = "";
     container.innerHTML = '';
 
@@ -86,7 +86,7 @@ function sortAndShowProducts(sortCriteria, productsArray) {
     }
 
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
-    showProductsList();
+    showProductsList(currentProductsArray);
 }
 
 
@@ -111,7 +111,7 @@ document.getElementById("clearRangeFilter").addEventListener("click", function()
     minPrice = undefined;
     maxPrice = undefined;
 
-    showProductsList();
+    showProductsList(currentProductsArray);
 });
 
 document.getElementById("rangeFilterCount").addEventListener("click", function(){
@@ -134,15 +134,15 @@ document.getElementById("rangeFilterCount").addEventListener("click", function()
         maxPrice = undefined;
     }
 
-    showProductsList();
+    showProductsList(currentProductsArray);
 });
 
 document.getElementById("productSearch").addEventListener("input", function() {
     const query = this.value.toLowerCase();
-    const currentProductsArray = currentProductsArray.filter(product =>
+    let filteredProducts = currentProductsArray.filter(product =>
         product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query)
     );
-    showProductsList();
+    showProductsList(filteredProducts);
 });
 
 
@@ -150,7 +150,7 @@ document.getElementById("productSearch").addEventListener("input", function() {
         .then(res => res.json())
         .then(data => {
             currentProductsArray = data.products;
-            showProductsList();
+            showProductsList(currentProductsArray);
         })
         .catch(error => console.error());
 });
