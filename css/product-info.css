@@ -21,7 +21,7 @@ section {
     line-height: normal;
 }
 
-.description {
+#description {
     width: 708px;
     height: 157px;
     flex-shrink: 0;
@@ -33,7 +33,7 @@ section {
     line-height: normal;
 }
 
-.price {
+#price {
     color: #E05C09;
     font-family: Lato;
     font-size: 24px;
@@ -42,7 +42,7 @@ section {
     line-height: normal;
 }
 
-.productssold {
+#productssold {
     color: #616161;
     font-family: Lato;
     font-size: 24px;
@@ -63,7 +63,7 @@ section {
     border-radius: 10px;
     background: #E05C09;
 }
-.text {
+#text {
     color: #FFF;
     font-family: Lato;
     font-size: 16px;
@@ -71,6 +71,10 @@ section {
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
+}
+
+.footer {
+  background: #E05C09;
 }
 
 @media (max-width: 568px) {
