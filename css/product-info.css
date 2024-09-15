@@ -1,0 +1,110 @@
+section {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#containercircle{
+    width: 647px;
+    height: 492px;
+    flex-shrink: 0;
+    border-radius: 647px;
+    background: #E05C09;
+}
+
+#productName {
+    width: 298px;
+    color: #E05C09;
+    font-family: Montserrat;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+
+.description {
+    width: 708px;
+    height: 157px;
+    flex-shrink: 0;
+    color: #000;
+    font-family: Lato;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.price {
+    color: #E05C09;
+    font-family: Lato;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.productssold {
+    color: #616161;
+    font-family: Lato;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#containerbutton {
+    display: flex;
+    width: 615px;
+    height: 116px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #E05C09;
+}
+.text {
+    color: #FFF;
+    font-family: Lato;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+@media (max-width: 568px) {
+  .pb-5 {
+    background-color: rgba(209, 111, 13, 0.243);
+    transition: background-color 0.3s ease;
+  }
+
+ 
+  #containerProduct .imgProduct{
+    flex: 1 1 100%; 
+    max-width: 100%;
+  }
+  
+}
+
+@media (max-width: 768px) and (min-width: 568px) {
+  .pb-5 {
+    transition: background-color 0.3s ease;
+  }
+  
+  
+  #containerProduct .imgProduct{
+    flex: 100%; 
+    max-width: 100%;
+  }  
+}
+
+@media (max-width:1366px) and (min-width: 767px) {
+  .pb-5 {
+    transition: background-color 0.3s ease;
+  }
+  .productName {
+    color: rgba(33, 33, 33, 0.939);
+  }
+
+}

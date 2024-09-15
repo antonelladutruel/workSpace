@@ -10,6 +10,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/product-info.css" rel="stylesheet">
 </head>
 
 <body>
@@ -38,18 +39,21 @@
   </nav>
   <main>
 
-    <div class="containerProduct">
-      <h1>Listado de productos</h1>
-<ul class="productList">
-   <li class="product-item">
-    <img src="img/" alt="ImgProducto 1">
-    <div class="productName">Producto:</div>
-    <div class="productDescription">Descripción:</div>
-    <div class="productPrice">$:</div>
-    <div class="productSold">Cantidad de vendidos:</div>
-</li>
-</ul>
-    </div> <!--Punto 2: Prototipo de Listado de Producto-->
+    <section>
+    <ul class="productList">
+      <li class="product-item">
+        <img class="productImage container" alt="Imagen del producto" id="containercircle">
+        <div class="productName">Producto:</div>
+        <div class="productDescription">Descripción:</div>
+        <div class="productCost">$:</div>
+        <div class="productSoldCount">Cantidad de vendidos:</div>
+        <input> <button id="containerbutton">
+          <p class="text">add to cart</p>
+        </button> </input>
+      </li>
+    </ul>
+  </section>
+
 
   </main>
   <footer class="text-muted">
@@ -57,7 +61,8 @@
       <p class="float-end">
         <a href="#">Volver arriba</a>
       </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
+      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a>
+      </p>
     </div>
   </footer>
   <div id="spinner-wrapper">
@@ -71,7 +76,6 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
-  <script src="js/username.js"></script>
 </body>
 
 </html>

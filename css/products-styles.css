@@ -65,7 +65,7 @@
   .productDescription {
     color: #2a2929;
     font-family: sans-serif;
-    font-size: 75% ;
+    font-size: larger;
     font-weight: 400;
     padding: 0% 0% 2% 0%;
   }
@@ -140,4 +140,9 @@
   
   body {
      background-color:#E05C09;}
+
+  #linkProduct{
+      text-decoration: none;
+      color: inherit;
+    }
 
