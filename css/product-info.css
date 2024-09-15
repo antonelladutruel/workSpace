@@ -1,3 +1,8 @@
+section {
+  justify-content: center !important;
+  align-items: center !important;
+}
+
 #containercircle{
     width: 647px;
     height: 492px;
@@ -6,7 +11,7 @@
     background: #E05C09;
 }
 
-#containertitle {
+#productName {
     width: 298px;
     color: #E05C09;
     font-family: Montserrat;
