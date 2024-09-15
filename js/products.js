@@ -49,7 +49,7 @@ function showProductsList(currentProductsArray) {
 
             htmlContentToAppend += `
                 <div class="col-md-6 col-mb-4 mb-4">
-                     <a class="productAnchor" href="product-info.html" >
+                    <a class="productAnchor" href="product-info.html" data-id="${product.id}" id="linkProduct">
                         <div class="imgProductCnt">
                             <img class="imgProduct" src="${product.image}" alt="${product.name}">
                         </div>
@@ -64,7 +64,7 @@ function showProductsList(currentProductsArray) {
                             </div>
             
                             <div class="productCost" class="genericProductInfo">
-                                <p><span class="price">US$ </span>${product.cost}</p>
+                                <p><span class="price">${product.currency} </span>${product.cost}</p>
                             </div>
             
                             <div class="productSoldCount" class="genericProductInfo">
@@ -78,7 +78,15 @@ function showProductsList(currentProductsArray) {
     }
 
     container.innerHTML = htmlContentToAppend;
-}
+
+    document.querySelectorAll(".productAnchor").forEach(item => {
+        item.addEventListener("click", function(event) {
+            const productId = this.getAttribute('data-id');
+            console.log("Producto seleccionado con ID:", productId);
+            localStorage.setItem('productId', productId)
+        });
+    });
+};
 
 function sortAndShowProducts(sortCriteria, productsArray) {
     currentSortCriteria = sortCriteria;
@@ -90,7 +98,6 @@ function sortAndShowProducts(sortCriteria, productsArray) {
     currentProductsArray = sortProducts(currentSortCriteria, currentProductsArray);
     showProductsList(currentProductsArray);
 }
-
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -145,10 +152,6 @@ document.addEventListener('DOMContentLoaded', function () {
             product.name.toLowerCase().includes(query) || product.description.toLowerCase().includes(query)
         );
         showProductsList(filteredProducts);
-    });
-
-    document.getElementsByClassName("productAnchor").addEventListener("click", function(){
-
     });
 
     fetch(DATA_URL)
