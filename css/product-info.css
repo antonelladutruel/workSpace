@@ -77,6 +77,44 @@ section {
   background: #E05C09;
 }
 
+.productComments {
+  background-color: #ffffff; /* Fondo blanco para mayor claridad */
+  padding: 20px; /* Aumentar espaciado interno */
+  border-radius: 12px; /* Bordes más redondeados */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+  margin-top: 30px; /* Aumentar separación superior */
+  font-family: Arial, sans-serif; /* Fuente más amigable */
+}
+
+.productComments h5 {
+  font-weight: 600; /* Peso de fuente más ligero */
+  color: #343a40; /* Color de texto más oscuro */
+  margin-bottom: 15px; /* Aumentar espacio inferior */
+}
+
+.productComments p {
+  font-size: 1.1rem; /* Aumentar tamaño de fuente */
+  color: #495057; /* Color de texto más suave */
+  line-height: 1.5; /* Mayor altura de línea para mejor legibilidad */
+  margin-bottom: 15px; /* Aumentar espacio inferior */
+}
+
+.productComments .comment {
+  padding: 15px; /* Espaciado interno más amplio */
+  border-left: 4px solid #E05C09; /* Línea lateral para destacar comentarios */
+  background-color: #f1f3f5; /* Fondo suave para los comentarios */
+  margin-bottom: 15px; /* Aumentar separación entre comentarios */
+  transition: background-color 0.3s; /* Transición suave al pasar el ratón */
+}
+
+.productComments .comment:hover {
+  background-color: #e9ecef; /* Cambiar fondo al pasar el ratón */
+}
+
+.productComments .comment:last-child {
+  border-bottom: none; /* Quitar borde inferior del último comentario */
+}
+
 @media (max-width: 568px) {
   .pb-5 {
     background-color: rgba(209, 111, 13, 0.243);
@@ -113,18 +151,26 @@ section {
 
 }
 
-
-
-.card:hover {
-  transform: scale(1.05); 
+.rating-container {
+  display: flex;
+  gap: 5px;
 }
 
-.card a{
-  color: black; 
-    text-decoration: none;
+
+.star {
+font-size: 1em;
+cursor: pointer;
+color: rgb(39, 38, 38);
+transition: color 0.3s;
+align-items: flex-start;
 }
 
-.card a:hover {
-  color: black;
-  text-decoration: none;
+
+.star:hover,
+.star.selected {
+color: #ffa500;
 }
+
+
+
+

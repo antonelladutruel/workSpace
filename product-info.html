@@ -56,7 +56,29 @@
     </section>
 
     <div class="productComments"></div>
-    
+    <div class="rating-form-container">
+      <form id="ratingForm">
+          <label for="userComment">Escribe tu comentario:</label>
+          <textarea id="userComment" name="comment" rows="4" cols="50" required></textarea>
+  
+          <label for="userRating">Calificación:</label>
+          <div class="rating-container">
+            <div class="stars">
+              <i class="star fas fa-star" data-value="1"></i>
+              <i class="star fas fa-star" data-value="2"></i>
+              <i class="star fas fa-star" data-value="3"></i>
+              <i class="star fas fa-star" data-value="4"></i>
+              <i class="star fas fa-star" data-value="5"></i>
+            </div>
+  
+          <input type="hidden" id="userRating" name="rating" value="0">
+          <button type="submit">Enviar</button>
+      </form>
+  
+  </div>
+  
+  <div class="productComments"></div>
+  
   </main>
     <section>
       <div class="container text-center">
