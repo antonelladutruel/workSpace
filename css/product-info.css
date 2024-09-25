@@ -112,3 +112,19 @@ section {
   }
 
 }
+
+
+
+.card:hover {
+  transform: scale(1.05); 
+}
+
+.card a{
+  color: black; 
+    text-decoration: none;
+}
+
+.card a:hover {
+  color: black;
+  text-decoration: none;
+}
