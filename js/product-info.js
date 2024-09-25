@@ -2,7 +2,55 @@ document.addEventListener('DOMContentLoaded', function() {
     const catId = localStorage.getItem('catID');
     const DATA_URL = `https://japceibal.github.io/emercado-api/cats_products/${catId}.json`;
     const productId = localStorage.getItem('productId');
+    const PRODUCT_INFO_COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
 
+    // Fetch para obtener los comentarios del producto
+    fetch(PRODUCT_INFO_COMMENTS_URL)
+    .then(res => {
+        if (!res.ok) {
+            throw new Error("Error al obtener los comentarios");
+        }
+        return res.json();
+    })
+    .then(data => {
+        // Mostrar los comentarios en el HTML
+        const commentsContainer = document.querySelector(".productComments");
+
+        data.forEach(comment => {
+            const commentElement = document.createElement("div");
+            commentElement.classList.add("comment");
+
+            // Generar las estrellas basadas en la puntuación del comentario
+            const stars = generateStars(comment.score);
+
+            commentElement.innerHTML = `
+                <p><strong>${comment.user}</strong> - ${comment.dateTime}</p>
+                <div class="stars">${stars}</div>
+                <p>${comment.description}</p>
+            `;
+
+            commentsContainer.appendChild(commentElement);
+        });
+    })
+    .catch(error => {
+        console.error("Error al cargar los comentarios:", error);
+    });
+
+function generateStars(score) {
+    let stars = "";
+    
+    for (let i = 1; i <= 5; i++) {
+        if (i <= score) {
+            stars += `<span class="fa fa-star checked"></span>`; // Estrella seleccionada (checked)
+        } else {
+            stars += `<span class="fa fa-star"></span>`; // Estrella sin seleccionar
+        }
+    }
+
+    return stars;
+}
+
+    // Fetch para obtener la información del producto
     fetch(DATA_URL)
     .then(res => res.json())
     .then(data => {
@@ -21,21 +69,18 @@ document.addEventListener('DOMContentLoaded', function() {
     .catch(error => console.error('Error al cargar los datos del producto:', error));
 });
 
-//Se añade validación de usuario registrado en index.js, categories.js y sell.js
+// Validación de usuario registrado
 document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
     const loginPagePath = "/login.html";  
 
-    // Verifica si no estamos en la página de login
     if (currentPath !== loginPagePath) {
         const username = localStorage.getItem("nombreUsuario");
         const password = localStorage.getItem("contraseña");
 
-        // Si no hay nombre de usuario o contraseña en localStorage, redirige al login
-    if (!username || !password) {
+        if (!username || !password) {
             alert("Debes iniciar sesión para acceder a esta página.");
             window.location.href = "login.html"; 
         }
     }
 });
-
