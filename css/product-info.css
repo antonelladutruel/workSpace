@@ -112,3 +112,27 @@ section {
   }
 
 }
+
+.rating-container {
+  display: flex;
+  gap: 5px;
+}
+
+
+.star {
+font-size: 1em;
+cursor: pointer;
+color: rgb(39, 38, 38);
+transition: color 0.3s;
+align-items: flex-start;
+}
+
+
+.star:hover,
+.star.selected {
+color: #ffa500;
+}
+
+
+
+

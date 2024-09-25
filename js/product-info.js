@@ -3,8 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const DATA_URL = `https://japceibal.github.io/emercado-api/cats_products/${catId}.json`;
     const productId = localStorage.getItem('productId');
     const PRODUCT_INFO_COMMENTS_URL = `https://japceibal.github.io/emercado-api/products_comments/${productId}.json`;
+    const ratingForm = document.getElementById("ratingForm");
+    const userCommentInput = document.getElementById("userComment");
+    const userRatingInput = document.getElementById("userRating");
+    const submittedMessage = document.getElementById("submittedMessage");
+    const stars = document.querySelectorAll('.star');
 
-    // Fetch para obtener los comentarios del producto
     fetch(PRODUCT_INFO_COMMENTS_URL)
     .then(res => {
         if (!res.ok) {
@@ -13,14 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return res.json();
     })
     .then(data => {
-        // Mostrar los comentarios en el HTML
         const commentsContainer = document.querySelector(".productComments");
 
         data.forEach(comment => {
             const commentElement = document.createElement("div");
             commentElement.classList.add("comment");
 
-            // Generar las estrellas basadas en la puntuación del comentario
             const stars = generateStars(comment.score);
 
             commentElement.innerHTML = `
@@ -50,7 +52,36 @@ function generateStars(score) {
     return stars;
 }
 
-    // Fetch para obtener la información del producto
+stars.forEach(star => {
+    star.addEventListener('click', function() {
+        let rating = this.getAttribute('data-value');
+        userRatingInput.value = rating;
+
+        // Remover selección previa
+        stars.forEach(s => s.classList.remove('selected'));
+
+        // Marcar estrellas hasta la seleccionada como seleccionadas
+        for (let i = 0; i < rating; i++) {
+            stars[i].classList.add('selected');
+        }
+    });
+});
+
+
+ratingForm.addEventListener('submit', function(event) {
+    event.preventDefault(); 
+
+    const userComment = userCommentInput.value;
+    const userRating = userRatingInput.value;
+
+    if (userRating === "0") {
+        alert("Selecciona una calificación antes de enviar.");
+        return;
+    }
+
+});
+
+    
     fetch(DATA_URL)
     .then(res => res.json())
     .then(data => {
@@ -58,7 +89,6 @@ function generateStars(score) {
         const product = productsArray.find(p => p.id === parseInt(productId));
 
         if (product) {
-            // Mostrar la información del producto en las etiquetas HTML correspondientes
             document.querySelector(".productName").textContent = product.name;
             document.querySelector(".productDescription").textContent = product.description;
             document.querySelector(".productCost").textContent = `${product.currency} ${product.cost}`;
@@ -69,7 +99,6 @@ function generateStars(score) {
     .catch(error => console.error('Error al cargar los datos del producto:', error));
 });
 
-// Validación de usuario registrado
 document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
     const loginPagePath = "/login.html";  
