@@ -67,20 +67,6 @@ stars.forEach(star => {
     });
 });
 
-
-ratingForm.addEventListener('submit', function(event) {
-    event.preventDefault(); 
-
-    const userComment = userCommentInput.value;
-    const userRating = userRatingInput.value;
-
-    if (userRating === "0") {
-        alert("Selecciona una calificación antes de enviar.");
-        return;
-    }
-
-});
-
     
     fetch(DATA_URL)
     .then(res => res.json())
