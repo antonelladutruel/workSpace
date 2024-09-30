@@ -170,3 +170,65 @@ function loadRelatedProducts(relatedProducts) {
 function setProductId(id) {
     localStorage.setItem('productId', id);
 }
+
+function generateStars(score) {
+    let stars = "";
+    for (let i = 1; i <= 5; i++) {
+        if (i <= score) {
+            stars += `<span class="fa fa-star checked"></span>`; // Estrella seleccionada
+        } else {
+            stars += `<span class="fa fa-star"></span>`; // Estrella no seleccionada
+        }
+    }
+    return stars;
+}
+
+// Función para crear el comentario en el DOM
+function createCommentElement(user, date, description, score) {
+    const commentElement = document.createElement("div");
+    commentElement.classList.add("comment");
+
+    const stars = generateStars(score);
+
+    commentElement.innerHTML = `
+        <p><strong>${user}</strong> - ${date}</p>
+        <div class="stars">${stars}</div>
+        <p>${description}</p>
+    `;
+
+    return commentElement;
+}
+
+// Evento cuando se envía el formulario
+document.getElementById("ratingForm").addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const userComment = document.getElementById("userComment").value;
+    const userRating = document.getElementById("userRating").value;
+
+    // Obtener el nombre de usuario desde el localStorage
+    const username = localStorage.getItem("nombreUsuario");
+
+    // Validar que se haya seleccionado una calificación
+    if (userRating === "0") {
+        alert("Selecciona una calificación antes de enviar.");
+        return;
+    }
+
+    // Obtener la fecha actual en formato de fecha y hora
+    const currentDateTime = new Date().toLocaleString();
+
+    // Crear el nuevo comentario
+    const newComment = createCommentElement(username, currentDateTime, userComment, userRating);
+
+    // Agregar el nuevo comentario al final del contenedor de comentarios
+    document.querySelector(".productComments").appendChild(newComment);
+
+    // Limpiar el formulario después de enviar
+    document.getElementById("userComment").value = "";
+    document.getElementById("userRating").value = "0";
+
+    // Limpiar las estrellas seleccionadas
+    const stars = document.querySelectorAll('.star');
+    stars.forEach(s => s.classList.remove('selected'));
+});
