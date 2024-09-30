@@ -136,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector(".productSoldCount").textContent = `Cantidad de vendidos: ${product.soldCount}`;
             document.querySelector(".productImage").src = product.image;
 
-            // Cargar productos relacionados (puedes personalizar la lógica para definir qué productos mostrar)
+            // Cargar productos relacionados
             const relatedProducts = productsArray.filter(p => p.id !== product.id).slice(0, 4); // Muestra 4 productos relacionados
             loadRelatedProducts(relatedProducts);
         }
