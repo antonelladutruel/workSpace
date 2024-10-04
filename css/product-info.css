@@ -1,18 +1,18 @@
 section {
-  justify-content: center !important;
-  align-items: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+  
 }
 
 #containercircle{
-    width: 647px;
-    height: 492px;
-    flex-shrink: 0;
-    border-radius: 647px;
-    background: #E05C09;
+    width: 80%;
+    height: 80%;
 }
 
 #productName {
-    width: 298px;
+    width: 80%;
     color: #E05C09;
     font-family: Montserrat;
     font-size: 36px;
@@ -188,3 +188,4 @@ color: #ffa500;
 #productosRelacionados{
   margin-top: 1rem;
 }
+
