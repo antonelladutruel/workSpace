@@ -61,61 +61,69 @@
       </div>
     </div>
   </nav>
-  <div id="bar">
-    <h4 class="editProfile">Editar perfil</h4>
-  </div>
-  <main>
-    <div class="container form-section">
-      <form>
-        <div class="row mb-1">
-          <div class="col-md-4">
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="nombre" >
-            </div>
-            <div class="mb-3">
-              <label for="apellido" class="form-label">Apellido</label>
-              <input type="text" class="form-control" id="apellido">
-            </div>
-            <div class="mb-3">
-              <label for="telefono" class="form-label">Teléfono de contacto</label>
-              <input type="text" class="form-control" id="telefono">
-            </div>
+
+
+  <div>
+    <div id="bar">
+      <h4 class="editProfile">Editar perfil</h4>
+    </div>
+    <main>
+      <div class="container form-section">
+        <div class="row">
+          <div class="col-md-8">
+            <form id="form">
+              <div class="row mb-1">
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre">
+                  </div>
+                  <div class="mb-3">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellido">
+                  </div>
+                  <div class="mb-3">
+                    <label for="telefono" class="form-label">Teléfono de contacto</label>
+                    <input type="text" class="form-control" id="telefono">
+                  </div>
+                </div>
+      
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="segundoNombre" class="form-label">Segundo Nombre</label>
+                    <input type="text" class="form-control" id="segundoNombre">
+                  </div>
+                  <div class="mb-3">
+                    <label for="segundoApellido" class="form-label">Segundo Apellido</label>
+                    <input type="text" class="form-control" id="segundoApellido">
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <input type="email" class="form-control" id="email">
+                  </div>
+                </div>
+              </div>
+            </form>
           </div>
   
           <div class="col-md-4">
-            <div class="mb-3">
-              <label for="segundoNombre" class="form-label">Segundo Nombre</label>
-              <input type="text" class="form-control" id="segundoNombre">
+            <div class="profile-upload mb-3">
+              <!-- Botón para seleccionar la imagen -->
+              <label for="image-input" class="form-label">Subir Imagen de Perfil</label>
+              <input type="file" id="image-input" accept="image/*" class="form-control mb-3">
+              <button id="upload-button" class="btn btn-primary">Subir Imagen</button>
             </div>
             <div class="mb-3">
-              <label for="segundoApellido" class="form-label">Segundo Apellido</label>
-              <input type="text" class="form-control" id="segundoApellido">
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">E-mail</label>
-              <input type="email" class="form-control" id="email">
-            </div>
-          </div>
-  
-          <div class="col-md-4">
-            <div class="profile-upload">
+              <!-- Imagen de perfil -->
+              <img id="profile-image" src="" alt="Imagen de Perfil"/>
             </div>
           </div>
         </div>
-
+      </div>
+    </main>
+  </div>
   
-      <!-- Botón para seleccionar la imagen -->
-      <input type="file" id="image-input" accept="image/*">
-      <button id="upload-button">Subir Imagen</button>
-
-      </form>
-
-      <div class="col-md-1">
-        <!-- Imagen de perfil -->
-        <img id="profile-image" src="" alt="Imagen de Perfil" style="width: 150px; height: 150px; object-fit: cover; border-radius: 50%;"/>
-    </div>
-    </div>
+    
   </main>
   <footer class="text-muted">
     <div class="container">

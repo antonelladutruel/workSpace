@@ -40,3 +40,13 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const username = localStorage.getItem('nombreUsuario');
+
+      const emailInput = document.getElementById('email');
+      emailInput.value = `${username}`; 
+
+  });
+  
