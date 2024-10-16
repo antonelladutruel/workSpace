@@ -33,21 +33,31 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
+
+          <div class="mode">
+            <div class="dark-mode">
+                <div class="circle">
+                  <ion-icon class="sun" name="sunny"></ion-icon>
+                  <ion-icon class="moon" name="moon"></ion-icon>
+                </div>
+              </div></div>
+          <div class="btn-group">  <!-- Entrega 5 - pauta 2 -->
+            <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li class="nav-item"></li>
+            </button>
+            <ul class="dropdown-menu">
+              <a href="cart.html">Carrito</a>
+              <br>
+              <a href="my-profile.html">Mi perfil</a>
+              <br>
+              <a href="login.html" id="logoutButton">Cerrar sesión</a>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
-<div class="mode">
-  <div class="dark-mode">
-      <div class="circle">
-        <ion-icon class="sun" name="sunny"></ion-icon>
-        <ion-icon class="moon" name="moon"></ion-icon>
-      </div>
-    </div></div>
-    
   </nav>
-  
+ 
 
   <main>
 
@@ -119,6 +129,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/product-info.js"></script>
+  <script src="js/username.js"></script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
