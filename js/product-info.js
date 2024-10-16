@@ -153,3 +153,10 @@ function loadRelatedProducts(relatedProducts) {
 function setProductId(id) {
     localStorage.setItem('productId', id);
 }
+
+const darkMode = document.querySelector(".dark-mode");
+const body = document.body;
+
+darkMode.addEventListener("click",()=>{
+    body.classList.toggle("active");
+});
