@@ -139,7 +139,7 @@ var Dropzone = function (_Emitter) {
       this.prototype.Emitter = Emitter;
 
       /*
-       This is a list of all available events you can register on a dropzone object.
+      This is a list of all available events you can register on a dropzone object.
         You can register an event handler like this:
         dropzone.on("dragEnter", function() { });
         */

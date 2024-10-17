@@ -45,8 +45,46 @@ document.addEventListener("DOMContentLoaded", function() {
 document.addEventListener("DOMContentLoaded", function() {
     const username = localStorage.getItem('nombreUsuario');
 
-      const emailInput = document.getElementById('email');
-      emailInput.value = `${username}`; 
+    const emailInput = document.getElementById('email');
+    emailInput.value = `${username}`; 
+});  
 
-  });
-  
+// Entrega 5 pauta 3
+document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe y recargue la página
+
+    // Obtener valores de los campos del formulario
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const telefono = document.getElementById('telefono').value;
+    const segundoNombre = document.getElementById('segundoNombre').value;
+    const segundoApellido = document.getElementById('segundoApellido').value;
+    // No se incluye el campo de e-mail
+
+    // Guardar en localStorage
+    localStorage.setItem('nombre', nombre);
+    localStorage.setItem('apellido', apellido);
+    localStorage.setItem('telefono', telefono);
+    localStorage.setItem('segundoNombre', segundoNombre);
+    localStorage.setItem('segundoApellido', segundoApellido);
+
+    // Mensaje de confirmación
+    alert('Sus datos se han guardado.');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const currentPath = window.location.pathname;
+    const loginPagePath = "/login.html";
+
+    // Verifica si no estamos en la página de login
+    if (currentPath !== loginPagePath) {
+        const username = localStorage.getItem("nombreUsuario");
+        const password = localStorage.getItem("contraseña");
+
+        // Si no hay nombre de usuario o contraseña en localStorage, redirige al login
+    if (!username || !password) {
+            alert("Debes iniciar sesión para acceder a esta página.");
+            window.location.href = "login.html"; 
+        }
+    }
+});
