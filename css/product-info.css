@@ -25,7 +25,6 @@ section {
     width: 708px;
     height: 157px;
     flex-shrink: 0;
-    color: #000;
     font-family: Lato;
     font-size: 24px;
     font-style: normal;
@@ -43,7 +42,6 @@ section {
 }
 
 #productssold {
-    color: #616161;
     font-family: Lato;
     font-size: 24px;
     font-style: normal;
@@ -78,7 +76,6 @@ section {
 }
 
 .productComments {
-  background-color: #ffffff; /* Fondo blanco para mayor claridad */
   padding: 20px; /* Aumentar espaciado interno */
   border-radius: 12px; /* Bordes más redondeados */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
@@ -102,7 +99,6 @@ section {
 .productComments .comment {
   padding: 15px; /* Espaciado interno más amplio */
   border-left: 4px solid #E05C09; /* Línea lateral para destacar comentarios */
-  background-color: #f1f3f5; /* Fondo suave para los comentarios */
   margin-bottom: 15px; /* Aumentar separación entre comentarios */
   transition: background-color 0.3s; /* Transición suave al pasar el ratón */
 }
@@ -160,7 +156,6 @@ section {
 .star {
 font-size: 1em;
 cursor: pointer;
-color: rgb(39, 38, 38);
 transition: color 0.3s;
 align-items: flex-start;
 }
@@ -189,69 +184,3 @@ color: #ffa500;
   margin-top: 1rem;
 }
 
-
-
-.mode{
-  margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: background-color 0.5s ease;
-}
-
-
-body.active{
-  background-color: #2C2C2E;
-}
-.dark-mode{
-  width: 70px;
-  height: 35px;
-  display: flex;
-  align-items: center;
-  border-radius: 999px;
-  background-color: #DFDEDE;
-  cursor: pointer;
-  transition: background-color 0.5s ease;
-}
-body.active .dark-mode{
-  background-color: white;
-}
-.dark-mode .circle{
-  width: 40%;
-  height: 80%;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: white;
-  transform: translateX(10%);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.5s ease,background-colo 0.5s ease;
-}
-body.active .circle{
-  transform: translateX(140%);
-  background-color: #2A2A2C;
-}
-.dark-mode .circle ion-icon{
-  width: 70%;
-  height: 70%;
-  position: absolute;
-  transition: transform 0.5s ease;
-}
-.dark-mode .circle .moon{
-  color: white;
-  transform: translateY(-120%);
-}
-body.active .circle .moon{
-  transform: translateX(0);
-}
-.dark-mode .circle .sun{
-  color: #FCDE5B;
-}
-body.active .circle .sun{
-  transform: translateY(120%);
-}
