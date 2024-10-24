@@ -160,3 +160,14 @@ const body = document.body;
 darkMode.addEventListener("click",()=>{
     body.classList.toggle("active");
 });
+
+
+// Entrega 6, Pauta 2
+const button = document.getElementById("containerbutton");
+
+button.addEventListener("click", function(){
+    const productCart = localStorage.getItem("productId");
+    window.location.href = "cart.html"; 
+    localStorage.setItem('productCart', productCart);
+
+ });
