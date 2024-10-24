@@ -1,10 +1,8 @@
-const productCart = JSON.parse(localStorage.getItem("productCart") || "[]");
+// Obtener el valor del carrito del localStorage
+let productCart = localStorage.getItem("productCart");
 
-// Buscar si el producto ya existe en el carrito basado en el 'id'
-const existingProduct = productCart.find(p => p.productCart === product.productCart);
+if (!productCart) {
+    alert("No hay productos cargados en el carrito.");
+};
 
-if (!existingProduct) {
-    console.log("Producto no existente en el carrito");
-} else {
-    console.log("Producto encontrado en el carrito:", existingProduct);
-}
+
