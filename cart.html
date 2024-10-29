@@ -9,6 +9,7 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/cart.css" rel="stylesheet">
 </head>
 
 <body>
@@ -54,11 +55,23 @@
     </div>
   </nav>
   <main>
-    <div id="cart-container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+  <h2 class="cartTitle">Carrito</h2>
+  <div class="col-lg-8 col-md-6 col-sm-12 container text-center cartinfo">
+    <div class="row">
+      <div class="card">
+        <div class="imgproduct">
+          <img class="card-img-top productImage" src="ruta-de-imagen" alt="Imagen del producto">
+        </div>          
+        <div class="card-body">
+          <h4 class="card-title productName" id="productName">Producto:</h4>
+          <div class="card-text productDescription" id="description">Descripción:</div>
+          <div class="card-text productCost" id="price">$:</div>
+        </div>
       </div>
     </div>
+  </div>
+  
   </main>
   <footer class="text-muted">
     <div class="container">
