@@ -162,12 +162,38 @@ darkMode.addEventListener("click",()=>{
 });
 
 
-// Entrega 6, Pauta 2
+// Entrega 6, Pauta 2 y agregar mas productos
 const button = document.getElementById("containerbutton");
 
-button.addEventListener("click", function(){
-    const productCart = localStorage.getItem("productId");
-    window.location.href = "cart.html"; 
-    localStorage.setItem('productCart', productCart);
+button.addEventListener("click", function() {
+    const productId = localStorage.getItem("productId");
 
- });
+    // Recuperar el carrito actual del local storage
+    let productCart = localStorage.getItem("productCart");
+
+    // Si no existe o no es un array, inicializar como array vacío
+    if (!productCart) {
+        productCart = [];
+    } else {
+        // Intentar convertir el carrito recuperado en un array
+        try {
+            productCart = JSON.parse(productCart);
+            // Asegurarse de que es un array
+            if (!Array.isArray(productCart)) {
+                productCart = [];
+            }
+        } catch (error) {
+            // Si hubo un error en la conversión, inicializar como array vacío
+            productCart = [];
+        }
+    }
+
+    // Agregar el productId al carrito
+    productCart.push(productId);
+
+    // Guardar el carrito actualizado en el local storage
+    localStorage.setItem('productCart', JSON.stringify(productCart));
+
+    // Redirigir a la página del carrito
+    window.location.href = "cart.html"; 
+});
