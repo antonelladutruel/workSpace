@@ -14,6 +14,7 @@ const catId = localStorage.getItem('catID');
     fetch(DATA_URL)
     .then(res => res.json())
     .then(data => {
+        
         const productsArray = data.products;
         const product = productsArray.find(p => p.id === parseInt(productId));
 
@@ -23,6 +24,9 @@ const catId = localStorage.getItem('catID');
             document.querySelector(".productCost").textContent = `${product.currency} ${product.cost}`;
             document.querySelector(".productImage").src = product.image;
             
+        }
+        else {
+            document.querySelector(".card").classList.add("hidden"); // Oculta la tarjeta si no hay producto
         }
     })
     .catch(error => console.error('Error al cargar los datos del producto:', error));

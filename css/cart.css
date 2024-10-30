@@ -48,3 +48,7 @@ justify-content: left;}
     color: #333;
     margin-top: 10px;
 }
+
+.hidden{
+  display: none;
+}
