@@ -1,126 +1,67 @@
-.cartinfo {
-  display: flex;
+.background{
+  background: #D9D9D9;
 }
 
-.card {
-  background-color: #f0f0f0;
-  box-shadow: 4px 10px 5px rgba(0, 0, 0, 0.25);
-  padding: 10px;
-  width: 90%;
-  margin: 4% 20% 
+
+.cartTitle{
+    display: flex;
+    margin: 6% 17% 3%;
+    justify-content: left;
+    color: #000;
+    font-family: Montserrat;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
 }
 
-.productName{
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-left: 3%;
-}
-
-.product-item{
-  margin-bottom: 5%;
-}
-
-.imgproduct {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-}
-
-.card-img-top {
-  max-width: 100%;
-  border-radius: 10px;
-}
-
-.card-body {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 10px;
-}
-
-.productCost {
-  align-self: flex-end; 
-  font-weight: bold;
-  color: #333;
-  margin-top: 10px;
-}
-
-.hidden {
-  display: none;
-}
-
-.productImage{
-  width: 80%;
-  padding: 3%;
-  margin: 5% 20% 2% 2%;
-}
-
-.cart-container {
-  display: flex;
-  justify-content: space-between; 
-  padding: 20px;
-  gap: 6%;
+.cartproduct {
+  color: #000;
+font-family: Lato;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 69.558%; 
 }
 
 .cartinfo {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.resume {
-  margin: 3% 8% 2% 40%;
-}
-
-.container-Buy {
-  margin-top: 4%;
-  display: flex;
-}
-
-.remove-product-btn {
-  margin: 2% 80%;
-}
-
-#totalPrice {
-  margin-bottom: 10px; 
-  font-weight: bold;
-}
-
-#totalPriceContainer {
-  flex-direction: column; 
-  align-items: center;
-  justify-content: center;
-  padding: 5%;
-  background: #f35c08;
-  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    color: #000;
   font-family: "Darker Grotesque";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
   line-height: normal;
-  text-align: center;
-  font-weight: bold;
-  color: white;
-}
-
-.purchase-info {
-  margin: 5% 10% 50% 2%;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-@media (max-width: 820px) {
-  .cart-container {
-    flex-direction: column;
-    width: 100%;
   }
-
-  .purchase-info {
+  
+  .card {
+    display: flex;
+    flex-direction: row;
+    background-color: #f0f0f0;
+    border: 1.5px solid #000;
+    border-radius: 15px;
+    box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    max-width: 720px;
     width: 100%;
-    padding: 20%;
+    border-radius: 43px;
+    border: 1.5px solid #000;
+    background: #D2D2D2;
+    box-shadow: 4px 8px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 500px;
+    height: 225px;
+  }
+  
+  .imgproduct {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 209px;
+    height: 209px;
+    flex-shrink: 0;
+    border-radius: 40px;
   }
 }
 
@@ -197,12 +138,65 @@ h4.formContent {
   .form-container {
     padding: 15px;
   }
-
-  .formContent {
+  
+  .card-body {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .productCost{
+    align-self: flex-end; 
+    font-weight: bold;
     font-size: 1.2rem;
-  }
+    color: #333;
+    margin-top: 10px;
+    color: #000;
+    font-family: "Darker Grotesque";
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
 
-  input, select {
-    font-size: 1rem;
-  }
+
+.paymentcard{
+  width: 417px;
+  height: 527px;
+  flex-shrink: 0;
+  background: #E05C09;
+  box-shadow: 4px 8px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.paymenttext {
+  width: 79px;
+  height: 47px;
+  flex-shrink: 0;
+}
+
+.paymentbutton{
+  width: 380px;
+  height: 63px;
+  flex-shrink: 0;
+  background: #000;
+  color: #000;
+  font-family: Lato;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.paymenttext{
+  width: 106px;
+  height: 38px;
+  flex-shrink: 0;
+  color: #FFF;
+  font-family: Lato;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 7.5px;
 }
