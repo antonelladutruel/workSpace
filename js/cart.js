@@ -1,3 +1,5 @@
+
+//Punto 3
 // Obtener el valor del carrito del localStorage
 let productCart = localStorage.getItem("productCart");
 
@@ -43,7 +45,7 @@ if (Object.keys(productCount).length === 0) {
                         const productItem = document.createElement("li");
                         productItem.classList.add("product-item");
 
-                        // Calcular el subtotal
+                        // Calcular el subtotal PUNTO 4
                         const subtotal = product.cost * productCount[productId];
 
                         productItem.innerHTML = `
@@ -59,6 +61,11 @@ if (Object.keys(productCount).length === 0) {
 
                         // Añadir el elemento a la lista
                         productList.appendChild(productItem);
+
+
+
+
+                        //DESAFIATE
 
                         // Agregar el evento de cambio en el input de cantidad
                         const quantityInput = productItem.querySelector('.quantity-input');
@@ -84,6 +91,7 @@ if (Object.keys(productCount).length === 0) {
             .catch(error => console.error('Error al cargar los datos de los productos:', error));
     };
 
+
     // Función para calcular el precio total del carrito
     const calculateTotalPrice = () => {
         let totalPrice = 0;
@@ -101,7 +109,7 @@ if (Object.keys(productCount).length === 0) {
         document.getElementById("totalPrice").textContent = `$ `+ totalPrice;
     };
 
-
+//DESAFIATE
     // Función para actualizar el badge del carrito con la cantidad de productos
     const updateCartBadge = () => {
         const totalProductCount = Object.values(productCount).reduce((acc, count) => acc + count, 0);

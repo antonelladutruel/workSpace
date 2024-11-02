@@ -162,7 +162,7 @@ darkMode.addEventListener("click",()=>{
 });
 
 
-// Entrega 6, Pauta 2 y agregar mas productos
+// Entrega 6, Pauta 2 
 const button = document.getElementById("containerbutton");
 
 button.addEventListener("click", function() {
