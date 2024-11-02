@@ -42,12 +42,18 @@
             <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               <li class="nav-item"></li>
             </button>
+
             <ul class="dropdown-menu">
-              <a href="cart.html">Carrito</a>
+              <a href="cart.html" class="position-relative">
+                Carrito
+                <span class="badge rounded-pill bg-danger ms-2 cart-badge">0</span>
+                <span class="visually-hidden">productos en el carrito</span>
+              </a>              
               <br>
               <a href="my-profile.html">Mi perfil</a>
               <br>
               <a href="login.html" id="logoutButton">Cerrar sesión</a>
+              
             </ul>
           </div>
         </ul>
@@ -55,7 +61,8 @@
     </div>
   </nav>
   <main>
-
+    <div class="cart-container">
+<div>
   <h2 class="cartTitle">Carrito</h2>
   <div class="col-lg-8 col-md-6 col-sm-12 container text-center cartinfo">
     <div class="row">
@@ -66,6 +73,13 @@
       </div>
     </div>
   </div>
+</div>
+<div class="container-Buy">
+  <div id="totalPriceContainer">Total:  <span id="totalPrice"></span>
+  <button type="button" class="btn btn-secondary" id="buttonBuy">Pagar</button>
+</div>
+</div>
+</div>
   
   </main>
   <footer class="text-muted">

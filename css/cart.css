@@ -1,54 +1,103 @@
-.cartTitle{
-    display: flex;
-    margin: 6% 17% 3%;
-justify-content: left;}
-
-
-.cartinfo {
-    display: flex;
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: row;
-    background-color: #f0f0f0;
-    border: 1.5px solid #000;
-    border-radius: 15px;
-    box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
-    padding: 10px;
-    max-width: 720px;
-    width: 100%;
-  }
-  
-  .imgproduct {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-  }
-  
-  .card-img-top {
-    max-width: 100%;
-    border-radius: 10px;
-  }
-  
-  .card-body {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 10px;
-  }
-  
-  .productCost{
-    align-self: flex-end; 
-    font-weight: bold;
-    font-size: 1.2rem;
-    color: #333;
-    margin-top: 10px;
+.cartTitle {
+  display: flex;
+  margin: 6% 17% 3%;
+  justify-content: left;
 }
 
-.hidden{
+.cartinfo {
+  display: flex;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: row;
+  background-color: #f0f0f0;
+  border: 1.5px solid #000;
+  border-radius: 15px;
+  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  max-width: 720px;
+  width: 100%;
+}
+
+.imgproduct {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.card-img-top {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.card-body {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+
+.productCost {
+  align-self: flex-end; 
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
+}
+
+.hidden {
   display: none;
+}
+
+.productImage{
+width: 50%;
+padding: 3%;
+margin-top: 3%;
+}
+
+
+.cart-container {
+  display: flex;
+  align-items: flex-start; /* Alinea ambos elementos al principio verticalmente */
+  gap: 20px; /* Espacio entre los elementos */
+}
+
+
+.container-Buy{
+   margin-top: 4%;
+  display: flex;
+}
+#totalPriceContainer {
+  margin-top: 100%;
+  display: flex;
+  flex-direction: column; /* Coloca los elementos en columna */
+  align-items: center;
+  justify-content: center;
+  padding: 50%;
+  flex-shrink: 0;
+  background: #E05C09;
+  box-shadow: 4px 8px 4px rgba(0, 0, 0, 0.25);
+  margin-left: auto; /* Para alinear el totalPriceContainer a la derecha */
+font-family: "Darker Grotesque";
+font-size: 100%;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+
+#totalPrice {
+  margin-bottom: 10px; /* Añade espacio debajo del total */
+  font-weight: bold;
+  
+}
+
+#buttonBuy {
+  display: flex;
+  margin-top: 10px; /* Añade un poco de espacio encima del botón */
 }

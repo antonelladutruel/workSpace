@@ -1,4 +1,3 @@
-// Entrga 6
 // Obtener el valor del carrito del localStorage
 let productCart = localStorage.getItem("productCart");
 
@@ -20,6 +19,9 @@ if (Object.keys(productCount).length === 0) {
     const productList = document.querySelector(".productList");
     productList.innerHTML = ""; // Limpiar la lista antes de agregar los productos
 
+    // Declarar `allProducts` fuera de la función para que esté disponible globalmente
+    let allProducts = [];
+
     // Función para cargar productos de cada categoría
     const loadProductsFromCategories = (categories) => {
         const promises = categories.map(catId => {
@@ -30,7 +32,7 @@ if (Object.keys(productCount).length === 0) {
         // Una vez que se carguen todos los productos
         Promise.all(promises)
             .then(dataArray => {
-                const allProducts = dataArray.flatMap(data => data.products); // Aplanar el array de productos
+                allProducts = dataArray.flatMap(data => data.products); // Asignar todos los productos a la variable global
 
                 // Recorrer cada productId en productCount
                 Object.keys(productCount).forEach(productId => {
@@ -70,13 +72,45 @@ if (Object.keys(productCount).length === 0) {
                             // Actualizar el productCount y el localStorage si es necesario
                             productCount[productId] = newQuantity; // Actualizar el conteo
                             localStorage.setItem("productCart", JSON.stringify(productCart)); // Guardar el carrito actualizado
+                            calculateTotalPrice(); // Actualizar el precio total
                         });
                     }
                 });
+
+                // Llamar a la función para calcular y mostrar el precio total en la consola
+                calculateTotalPrice();
+                updateCartBadge();
             })
             .catch(error => console.error('Error al cargar los datos de los productos:', error));
     };
 
+    // Función para calcular el precio total del carrito
+    const calculateTotalPrice = () => {
+        let totalPrice = 0;
+
+        Object.keys(productCount).forEach(productId => {
+            const product = allProducts.find(p => p.id === parseInt(productId));
+
+            if (product) {
+                const subtotal = product.cost * productCount[productId]; // Subtotal por producto
+                totalPrice += subtotal; // Sumar al total
+            }
+        });
+
+        // Mostrar el precio total en el elemento HTML
+        document.getElementById("totalPrice").textContent = `$ `+ totalPrice;
+    };
+
+
+    // Función para actualizar el badge del carrito con la cantidad de productos
+    const updateCartBadge = () => {
+        const totalProductCount = Object.values(productCount).reduce((acc, count) => acc + count, 0);
+        const cartBadge = document.querySelector(".cart-badge");
+        if (cartBadge) {
+            cartBadge.textContent = totalProductCount > 99 ? "99+" : totalProductCount;
+        }
+    };
+
+    // Llamar a la función para cargar los productos
     loadProductsFromCategories(categories);
 }
-
