@@ -162,6 +162,9 @@ h4.formContent {
 
 
 .paymentcard{
+  display: flex;
+  align-items: right;
+  justify-content: right;
   width: 417px;
   height: 527px;
   flex-shrink: 0;
