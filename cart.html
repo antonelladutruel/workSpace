@@ -61,24 +61,67 @@
     </div>
   </nav>
   <main>
+
     <div class="cart-container">
-<div>
-  <h2 class="cartTitle">Carrito</h2>
-  <div class="col-lg-8 col-md-8 col-sm-8 container text-center cartinfo">
-    <div class="row">
-      <div class="card">        
-        <ul class="productList">
-      </ul>
+      <!-- Columna de Productos (Izquierda) -->
+      <div class="cartinfo col-lg-8 col-md-8 col-sm-8">
+        <div class="row">
+          <div class="card">        
+            <ul class="productList">
+              <!-- Aquí va el listado de productos -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Columna de Información de Compra (Derecha) -->
+      <div class="purchase-info col-lg-4 col-md-4 col-sm-4">
+        <div class="form-container">
+          <div class="form-cnt">
+            <!-- Formulario de Envío -->
+            <label for="tipoEnvio">Tipo de envío</label>
+            <select id="tipoEnvio">
+              <option>Premium 2 a 5 días (15%)</option>
+              <option>Express 5 a 8 días (7%)</option>
+              <option>Standard 12 a 15 días (5%)</option>
+            </select>
+    
+            <h4>Dirección de envío</h4>
+            <label for="departamento">Departamento</label>
+            <select id="departamento">
+              <option>Seleccionar</option>
+            </select>
+    
+            <label for="localidad">Localidad</label>
+            <select id="localidad">
+              <option>Seleccionar</option>
+            </select>
+    
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion">
+    
+            <label for="numero">Número</label>
+            <input type="text" id="numero">
+    
+            <label for="esquina">Esquina</label>
+            <input type="text" id="esquina">
+    
+            <label for="formaPago">Forma de pago</label>
+            <select id="formaPago">
+              <option>Seleccionar</option>
+              <option>Tarjeta de crédito</option>
+              <option>Transferencia bancaria</option>
+            </select>
+          </div>
+        </div>
+    
+        <!-- Contenedor de Precio Total y Botón de Compra -->
+        <div id="totalPriceContainer">
+          Total: <span id="totalPrice"></span>
+          <button type="button" class="btn btn-secondary" id="buttonBuy">Pagar</button>
+        </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="container-Buy col-lg-1 col-md-1 col-sm-1">
-  <div id="totalPriceContainer">Total:  <span id="totalPrice"></span>
-  <button type="button" class="btn btn-secondary" id="buttonBuy">Pagar</button>
-</div>
-</div>
-</div>
   
   </main>
   <footer class="text-muted">
