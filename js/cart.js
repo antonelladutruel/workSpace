@@ -122,3 +122,42 @@ if (Object.keys(productCount).length === 0) {
     // Llamar a la función para cargar los productos
     loadProductsFromCategories(categories);
 }
+
+fetch("https://gist.githubusercontent.com/fedebabrauskas/b708c2a1b7a29af94927ad0e8d6d6a27/raw/b0c544d53c82de298ccedb824f8dd5e5ef5477e7/localidades.json")
+  .then(res => res.json())
+  .then(data => {
+    const departamentosSelect = document.getElementById("departamento");
+    const localidadesSelect = document.getElementById("localidad"); // Asegúrate de tener este select en tu HTML
+
+    // Agregar opciones de departamentos con el id como valor
+    data.forEach(department => {
+      const option = document.createElement("option");
+      option.value = department.id;  // Usar el id del departamento como valor
+      option.textContent = department.name;
+      departamentosSelect.appendChild(option);
+    });
+
+    // Guardar el id seleccionado en localStorage al cambiar la selección
+    departamentosSelect.addEventListener("change", function() {
+      const selectedDepartmentId = this.value;
+      localStorage.setItem("selectedDepartmentId", selectedDepartmentId); // Guardar en localStorage
+
+      const selectedDepartment = data.find(department => department.id === parseInt(selectedDepartmentId));
+
+
+      // Si se encuentra el departamento, agregar las localidades como opciones
+      if (selectedDepartment) {
+        const towns = selectedDepartment.towns;
+        towns.forEach(town => {
+          const option = document.createElement("option");
+          option.value = town.id;  // Usar el id de la localidad como valor
+          option.textContent = town.name;
+          localidadesSelect.appendChild(option);
+        });
+      } else {
+        console.log("Departamento no encontrado.");
+      }
+    });
+  })
+  .catch(error => console.error("Error al obtener los datos:", error));
+
