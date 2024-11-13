@@ -79,7 +79,7 @@
           <div class="form-cnt">
             <!-- Formulario de Envío -->
             <label for="tipoEnvio">Tipo de envío</label>
-            <select id="tipoEnvio">    <!--  Entrega 7 - pauta 3  -->
+            <select id="tipoEnvio" required>    <!--  Entrega 7 - pauta 3  -->
               <option value="15">Premium 2 a 5 días (15%)</option>
               <option value="7">Express 5 a 8 días (7%)</option>
               <option value="5">Standard 12 a 15 días (5%)</option>
@@ -87,27 +87,28 @@
 
             <h4>Dirección de envío</h4>
             <label for="departamento">Departamento</label>
-            <select id="departamento">
-              <option>Seleccionar</option>
+            <select id="departamento" required>
+              <option value="" disabled selected>Seleccionar</option>
+
             </select>
 
             <label for="localidad">Localidad</label>
-            <select id="localidad">
-              <option>Seleccionar</option>
+            <select id="localidad" required>
+              <option value="" disabled selected>Seleccionar</option>
             </select>
 
             <label for="direccion">Dirección</label>
-            <input type="text" id="direccion">
+            <input type="text" id="direccion" required>
 
             <label for="numero">Número</label>
-            <input type="text" id="numero">
+            <input type="text" id="numero" required>
 
             <label for="esquina">Esquina</label>
-            <input type="text" id="esquina">
+            <input type="text" id="esquina" required>
 
             <label for="formaPago">Forma de pago</label>
-            <select id="formaPago">
-              <option>Seleccionar</option>
+            <select id="formaPago" required>
+              <option value="" disabled selected>Seleccionar</option>
               <option>Tarjeta de crédito</option>
               <option>Transferencia bancaria</option>
             </select>

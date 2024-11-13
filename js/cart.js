@@ -162,3 +162,58 @@ fetch("https://gist.githubusercontent.com/fedebabrauskas/b708c2a1b7a29af94927ad0
   })
   .catch(error => console.error("Error al obtener los datos:", error));
 
+const buttonBuy = document.getElementById("buttonBuy");
+
+buttonBuy.addEventListener("click", () => {
+    const direccion = document.getElementById("direccion").value.trim();
+    const numero = document.getElementById("numero").value.trim();
+    const esquina = document.getElementById("esquina").value.trim();
+
+    const tipoEnvio = document.getElementById("tipoEnvio").value;
+    const departamento = document.getElementById("departamento").value;
+    const localidad = document.getElementById("localidad").value;
+
+    // Validación de cantidad de productos
+    let allQuantitiesValid = true;
+    Object.keys(productCount).forEach(productId => {
+        if (productCount[productId] <= 0) {
+            allQuantitiesValid = false;
+        }
+    });
+
+    // Validación de forma de pago
+    const formaPago = document.getElementById("formaPago").value;
+
+    if (!direccion || !numero || !esquina) {
+        alert("Por favor, complete todos los campos.");
+        return;
+    }
+
+    if (!tipoEnvio) {
+        alert("Por favor, seleccione un tipo de envío.");
+        return;
+    }
+
+    if (!departamento) {
+        alert("Por favor, seleccione un departamento.");
+        return;
+    }
+
+    if (!localidad) {
+        alert("Por favor, seleccione una localidad.");
+        return;
+    }
+
+    if (!allQuantitiesValid) {
+        alert("La cantidad de productos debe ser mayor a 0.");
+        return;
+    }
+
+    if (!formaPago) {
+        alert("Por favor, seleccione un método de pago.");
+        return;
+    }
+
+    alert("Compra realizada con éxito. ¡Gracias por tu compra!");
+    
+});
