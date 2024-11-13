@@ -21,7 +21,6 @@ if (Object.keys(productCount).length === 0) {
     const productList = document.querySelector(".productList");
     productList.innerHTML = ""; // Limpiar la lista antes de agregar los productos
 
-    // Declarar `allProducts` fuera de la función para que esté disponible globalmente
     let allProducts = [];
 
     // Función para cargar productos de cada categoría
@@ -36,16 +35,14 @@ if (Object.keys(productCount).length === 0) {
             .then(dataArray => {
                 allProducts = dataArray.flatMap(data => data.products); // Asignar todos los productos a la variable global
 
-                // Recorrer cada productId en productCount
                 Object.keys(productCount).forEach(productId => {
                     const product = allProducts.find(p => p.id === parseInt(productId));
 
                     if (product) {
-                        // Crear un nuevo elemento para mostrar el producto
                         const productItem = document.createElement("li");
                         productItem.classList.add("product-item");
 
-                        // Calcular el subtotal PUNTO 4
+                        // Calcular el subtotal
                         const subtotal = product.cost * productCount[productId];
 
                         productItem.innerHTML = `
@@ -59,57 +56,61 @@ if (Object.keys(productCount).length === 0) {
                             <div class="productSubtotal">Subtotal: ${product.currency} <span class="subtotal">${subtotal}</span></div>
                         `;
 
-                        // Añadir el elemento a la lista
                         productList.appendChild(productItem);
 
-
-
-
-                        //DESAFIATE
-
-                        // Agregar el evento de cambio en el input de cantidad
                         const quantityInput = productItem.querySelector('.quantity-input');
                         quantityInput.addEventListener('input', (e) => {
                             const newQuantity = parseInt(e.target.value);
                             if (newQuantity < 1) {
-                                e.target.value = 1; // Evitar cantidades menores a 1
+                                e.target.value = 1;
                             }
                             const newSubtotal = product.cost * newQuantity;
                             productItem.querySelector('.subtotal').textContent = newSubtotal;
-                            // Actualizar el productCount y el localStorage si es necesario
-                            productCount[productId] = newQuantity; // Actualizar el conteo
-                            localStorage.setItem("productCart", JSON.stringify(productCart)); // Guardar el carrito actualizado
-                            calculateTotalPrice(); // Actualizar el precio total
+                            productCount[productId] = newQuantity;
+                            localStorage.setItem("productCart", JSON.stringify(productCart));
+                            calculateTotalPrice();
                         });
                     }
                 });
 
-                // Llamar a la función para calcular y mostrar el precio total en la consola
                 calculateTotalPrice();
                 updateCartBadge();
             })
             .catch(error => console.error('Error al cargar los datos de los productos:', error));
     };
 
-
+    
+    // Entrega 7 - pauta 3 
     // Función para calcular el precio total del carrito
     const calculateTotalPrice = () => {
-        let totalPrice = 0;
-
+        let subtotal = 0;
         Object.keys(productCount).forEach(productId => {
             const product = allProducts.find(p => p.id === parseInt(productId));
-
             if (product) {
-                const subtotal = product.cost * productCount[productId]; // Subtotal por producto
-                totalPrice += subtotal; // Sumar al total
+                subtotal += product.cost * productCount[productId];
             }
         });
 
-        // Mostrar el precio total en el elemento HTML
-        document.getElementById("totalPrice").textContent = `$ `+ totalPrice;
-    };
+        // Obtener el porcentaje del tipo de envío seleccionado
+        const tipoEnvio = document.getElementById("tipoEnvio");
+        const envioPorcentaje = parseFloat(tipoEnvio.value) || 0;
 
-//DESAFIATE
+        // Calcular el costo de envío y el total
+        const shippingCost = subtotal * (envioPorcentaje / 100);
+        const totalPrice = subtotal + shippingCost;
+
+        // Mostrar los valores en el HTML
+        document.getElementById("subtotal").textContent = `$${subtotal.toFixed(2)}`;
+        document.getElementById("shippingCost").textContent = `$${shippingCost.toFixed(2)}`;
+        document.getElementById("totalPrice").textContent = `$${totalPrice.toFixed(2)}`;
+    };
+    // Entrega 7 - pauta 3 
+
+
+    // Escuchar cambios en el tipo de envío
+    const tipoEnvio = document.getElementById("tipoEnvio");
+    tipoEnvio.addEventListener("change", calculateTotalPrice);
+
     // Función para actualizar el badge del carrito con la cantidad de productos
     const updateCartBadge = () => {
         const totalProductCount = Object.values(productCount).reduce((acc, count) => acc + count, 0);
