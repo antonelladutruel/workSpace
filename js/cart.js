@@ -1,4 +1,3 @@
-
 //Punto 3
 // Obtener el valor del carrito del localStorage
 let productCart = localStorage.getItem("productCart");
@@ -54,6 +53,7 @@ if (Object.keys(productCount).length === 0) {
                                 Cantidad: <input type="number" value="${productCount[productId]}" min="1" data-product-id="${productId}" class="quantity-input">
                             </div>
                             <div class="productSubtotal">Subtotal: ${product.currency} <span class="subtotal">${subtotal}</span></div>
+                            <button class="remove-product-btn" data-product-id="${productId}">Eliminar</button>                     <!-- Botón de eliminar -->
                         `;
 
                         productList.appendChild(productItem);
@@ -70,6 +70,19 @@ if (Object.keys(productCount).length === 0) {
                             localStorage.setItem("productCart", JSON.stringify(productCart));
                             calculateTotalPrice();
                         });
+                        
+                        // Entrega 7 - desafiate
+                        // Botón de eliminar producto
+                        const removeButton = productItem.querySelector('.remove-product-btn');
+                        removeButton.addEventListener('click', () => {
+                            // Eliminar producto del carrito
+                            productCart = productCart.filter(id => id !== productId);
+                            localStorage.setItem("productCart", JSON.stringify(productCart));
+                            productItem.remove(); // Eliminar el producto de la vista
+                            productCount[productId] = 0; // Restablecer el contador de ese producto
+                            calculateTotalPrice(); // Recalcular los totales
+                            updateCartBadge(); // Actualizar el contador del carrito
+                        });
                     }
                 });
 
@@ -79,8 +92,6 @@ if (Object.keys(productCount).length === 0) {
             .catch(error => console.error('Error al cargar los datos de los productos:', error));
     };
 
-    
-    // Entrega 7 - pauta 3 
     // Función para calcular el precio total del carrito
     const calculateTotalPrice = () => {
         let subtotal = 0;
@@ -104,8 +115,6 @@ if (Object.keys(productCount).length === 0) {
         document.getElementById("shippingCost").textContent = `$${shippingCost.toFixed(2)}`;
         document.getElementById("totalPrice").textContent = `$${totalPrice.toFixed(2)}`;
     };
-    // Entrega 7 - pauta 3 
-
 
     // Escuchar cambios en el tipo de envío
     const tipoEnvio = document.getElementById("tipoEnvio");
@@ -145,6 +154,8 @@ fetch("https://gist.githubusercontent.com/fedebabrauskas/b708c2a1b7a29af94927ad0
 
       const selectedDepartment = data.find(department => department.id === parseInt(selectedDepartmentId));
 
+      // Limpiar las opciones de localidades antes de agregar las nuevas
+      localidadesSelect.innerHTML = "<option value=''>Seleccione una localidad</option>";
 
       // Si se encuentra el departamento, agregar las localidades como opciones
       if (selectedDepartment) {
@@ -162,6 +173,7 @@ fetch("https://gist.githubusercontent.com/fedebabrauskas/b708c2a1b7a29af94927ad0
   })
   .catch(error => console.error("Error al obtener los datos:", error));
 
+// Obtener el botón de compra
 const buttonBuy = document.getElementById("buttonBuy");
 
 buttonBuy.addEventListener("click", () => {
@@ -172,6 +184,7 @@ buttonBuy.addEventListener("click", () => {
     const tipoEnvio = document.getElementById("tipoEnvio").value;
     const departamento = document.getElementById("departamento").value;
     const localidad = document.getElementById("localidad").value;
+    const formaPago = document.getElementById("formaPago").value;
 
     // Validación de cantidad de productos
     let allQuantitiesValid = true;
@@ -181,11 +194,9 @@ buttonBuy.addEventListener("click", () => {
         }
     });
 
-    // Validación de forma de pago
-    const formaPago = document.getElementById("formaPago").value;
-
+    // Validaciones adicionales antes de proceder con la compra
     if (!direccion || !numero || !esquina) {
-        alert("Por favor, complete todos los campos.");
+        alert("Por favor, complete todos los campos de dirección.");
         return;
     }
 
@@ -214,6 +225,9 @@ buttonBuy.addEventListener("click", () => {
         return;
     }
 
+    // Si todo está correcto, procesar la compra
     alert("Compra realizada con éxito. ¡Gracias por tu compra!");
-    
+
+    // Aquí puedes agregar el código para enviar los datos al servidor si fuera necesario
+    // O redirigir a una página de confirmación
 });
