@@ -154,6 +154,9 @@ fetch("https://gist.githubusercontent.com/fedebabrauskas/b708c2a1b7a29af94927ad0
 
       const selectedDepartment = data.find(department => department.id === parseInt(selectedDepartmentId));
 
+      // Limpiar las opciones de localidades antes de agregar las nuevas
+      localidadesSelect.innerHTML = "<option value=''>Seleccione una localidad</option>";
+
       // Si se encuentra el departamento, agregar las localidades como opciones
       if (selectedDepartment) {
         const towns = selectedDepartment.towns;
@@ -169,3 +172,62 @@ fetch("https://gist.githubusercontent.com/fedebabrauskas/b708c2a1b7a29af94927ad0
     });
   })
   .catch(error => console.error("Error al obtener los datos:", error));
+
+// Obtener el botón de compra
+const buttonBuy = document.getElementById("buttonBuy");
+
+buttonBuy.addEventListener("click", () => {
+    const direccion = document.getElementById("direccion").value.trim();
+    const numero = document.getElementById("numero").value.trim();
+    const esquina = document.getElementById("esquina").value.trim();
+
+    const tipoEnvio = document.getElementById("tipoEnvio").value;
+    const departamento = document.getElementById("departamento").value;
+    const localidad = document.getElementById("localidad").value;
+    const formaPago = document.getElementById("formaPago").value;
+
+    // Validación de cantidad de productos
+    let allQuantitiesValid = true;
+    Object.keys(productCount).forEach(productId => {
+        if (productCount[productId] <= 0) {
+            allQuantitiesValid = false;
+        }
+    });
+
+    // Validaciones adicionales antes de proceder con la compra
+    if (!direccion || !numero || !esquina) {
+        alert("Por favor, complete todos los campos de dirección.");
+        return;
+    }
+
+    if (!tipoEnvio) {
+        alert("Por favor, seleccione un tipo de envío.");
+        return;
+    }
+
+    if (!departamento) {
+        alert("Por favor, seleccione un departamento.");
+        return;
+    }
+
+    if (!localidad) {
+        alert("Por favor, seleccione una localidad.");
+        return;
+    }
+
+    if (!allQuantitiesValid) {
+        alert("La cantidad de productos debe ser mayor a 0.");
+        return;
+    }
+
+    if (!formaPago) {
+        alert("Por favor, seleccione un método de pago.");
+        return;
+    }
+
+    // Si todo está correcto, procesar la compra
+    alert("Compra realizada con éxito. ¡Gracias por tu compra!");
+
+    // Aquí puedes agregar el código para enviar los datos al servidor si fuera necesario
+    // O redirigir a una página de confirmación
+});
