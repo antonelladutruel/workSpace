@@ -46,13 +46,15 @@ if (Object.keys(productCount).length === 0) {
 
                         productItem.innerHTML = `
                             <img class="productImage" src="${product.image}" alt="Imagen del producto">
-                            <div class="productName">Producto: ${product.name}</div>
+                            <div class="productName">${product.name}</div>
                             <div class="productDescription">Descripción: ${product.description}</div>
+                            <div class="resume">
                             <div class="productCost">Precio: ${product.currency} ${product.cost}</div>
                             <div class="productQuantity">
                                 Cantidad: <input type="number" value="${productCount[productId]}" min="1" data-product-id="${productId}" class="quantity-input">
                             </div>
                             <div class="productSubtotal">Subtotal: ${product.currency} <span class="subtotal">${subtotal}</span></div>
+                            </div>
                             <button class="remove-product-btn" data-product-id="${productId}">Eliminar</button>                     <!-- Botón de eliminar -->
                         `;
 
