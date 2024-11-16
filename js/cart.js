@@ -233,3 +233,11 @@ buttonBuy.addEventListener("click", () => {
     // Aquí puedes agregar el código para enviar los datos al servidor si fuera necesario
     // O redirigir a una página de confirmación
 });
+
+
+const darkMode = document.querySelector(".dark-mode");
+const body = document.body;
+
+darkMode.addEventListener("click",()=>{
+    body.classList.toggle("active");
+});

@@ -19,6 +19,7 @@ section {
     font-style: normal;
     font-weight: 800;
     line-height: normal;
+    margin-top: 4%;
 }
 
 #description {
@@ -35,11 +36,12 @@ section {
 #price {
     color: #E05C09;
     font-family: Lato;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 500;
+    font-size: xx-large;
+    font-weight: bold;
     line-height: normal;
+    margin-left: 60%;
 }
+
 
 #productssold {
     font-family: Lato;
@@ -47,17 +49,14 @@ section {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+margin-left: 60%;
 }
 
 #containerbutton {
+  margin-top: 2%;
+    margin-left: 60%;
     display: flex;
-    width: 615px;
-    height: 116px;
     padding: 12px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
     border-radius: 10px;
     background: #E05C09;
 }
@@ -166,7 +165,7 @@ align-items: flex-start;
 color: #ffa500;
 }
 
-.card:hover {
+.card:hover, .productList:hover {
   transform: scale(1.05); 
 }
 
@@ -184,3 +183,10 @@ color: #ffa500;
   margin-top: 1rem;
 }
 
+.submit{
+  font-weight: bold;
+}
+.submit:hover, #containerbutton:hover {
+  background-color: #343a40;
+  color: white;
+}
