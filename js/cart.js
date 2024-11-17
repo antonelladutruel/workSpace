@@ -139,7 +139,7 @@ fetch("https://gist.githubusercontent.com/fedebabrauskas/b708c2a1b7a29af94927ad0
   .then(res => res.json())
   .then(data => {
     const departamentosSelect = document.getElementById("departamento");
-    const localidadesSelect = document.getElementById("localidad"); // Asegúrate de tener este select en tu HTML
+    const localidadesSelect = document.getElementById("localidad"); 
 
     // Agregar opciones de departamentos con el id como valor
     data.forEach(department => {
@@ -229,9 +229,6 @@ buttonBuy.addEventListener("click", () => {
 
     // Si todo está correcto, procesar la compra
     alert("Compra realizada con éxito. ¡Gracias por tu compra!");
-
-    // Aquí puedes agregar el código para enviar los datos al servidor si fuera necesario
-    // O redirigir a una página de confirmación
 });
 
 
