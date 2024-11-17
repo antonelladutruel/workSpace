@@ -17,9 +17,19 @@
   font-weight: bold;
 }
 
-nav a {
+
+nav a{
+  margin: 1%;
   text-decoration: none;
+  color: black;
+  font-weight: bolder;
 }
+
+nav a:hover {
+  transform: scale(1.05); 
+color: orangered;
+}
+
 
 .bd-placeholder-img {
   font-size: 1.125rem;
@@ -246,7 +256,7 @@ div > form {
 
 
 .mode{
-  margin: 0;
+  margin-right: 3%;
     padding: 0;
     box-sizing: border-box;
     display: flex;
@@ -257,7 +267,7 @@ div > form {
 
 
 body.active, body.active p,
-body.active strong {
+body.active strong, body.active .card-body, body.active .footer, body.active .card, body.active .productCost, body.active .list-group-item, body.active .col-md-6, body.active .productDescription, body.active .productName{
   background-color: #2A2A2C ;
   color: whitesmoke;
 }
