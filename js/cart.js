@@ -122,7 +122,7 @@ if (Object.keys(productCount).length === 0) {
     const tipoEnvio = document.getElementById("tipoEnvio");
     tipoEnvio.addEventListener("change", calculateTotalPrice);
 
-    // Función para actualizar el badge del carrito con la cantidad de productos
+    // Función para actualizar el badge del carrito con la cantidad de productos - Entrega 7 - Desafiate
     const updateCartBadge = () => {
         const totalProductCount = Object.values(productCount).reduce((acc, count) => acc + count, 0);
         const cartBadge = document.querySelector(".cart-badge");
