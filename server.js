@@ -1,12 +1,23 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
+const SECRET_KEY = 'clave';
+
 
 const app = express();
 const port = 3000;
 
 // Configurar CORS
 app.use(cors());
+
+// Middleware para JSON y CORS
+app.use(express.json());
+app.use(cors({
+  origin: 'http://127.0.0.1:5500',
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type', 'access-token'],
+}));
 
 // Archivos estáticos (CSS, JS, imágenes)
 app.use('/css', express.static(path.join(__dirname, 'css')));
@@ -81,6 +92,32 @@ app.get('/sell', (req, res) => {
 app.get('/user-cart', (req, res) => {
     res.sendFile(path.join(__dirname, 'data/user_cart/25801.json'));
 });
+
+// Endpoint POST /login
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    if (username === "admin" && password === "admin") {
+      const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: "1h" });
+      res.status(200).json({ token });
+    } else {
+      res.status(401).json({ message: "Usuario o contraseña incorrectos" });
+    }
+  });
+  
+  const verifyToken = (req, res, next) => {
+    const token = req.headers["access-token"];
+    if (!token) return res.status(403).json({ message: "Token no proporcionado" });
+  
+    try {
+      const decoded = jwt.verify(token, SECRET_KEY);
+      req.user = decoded;
+      next();
+    } catch (err) {
+      res.status(401).json({ message: "Token inválido" });
+    }
+  };
+  
+
 
 // Iniciar el servidor
 app.listen(port, () => {
