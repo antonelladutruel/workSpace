@@ -323,3 +323,8 @@ body.active .circle .moon{
 body.active .circle .sun{
   transform: translateY(120%);
 }
+
+#categoriesBody{
+  background-color: #E05C09;
+
+}

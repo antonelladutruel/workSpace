@@ -1,7 +1,12 @@
 const express = require('express');
 const path = require('path');
+const cors = require('cors');
+
 const app = express();
 const port = 3000;
+
+// Configurar CORS
+app.use(cors());
 
 // Archivos estáticos (CSS, JS, imágenes)
 app.use('/css', express.static(path.join(__dirname, 'css')));
@@ -9,6 +14,7 @@ app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/img', express.static(path.join(__dirname, 'img')));
 app.use('/data', express.static(path.join(__dirname, 'data')));
 app.use('/webfonts', express.static(path.join(__dirname, 'webfonts')));
+
 
 // Ruta para servir el archivo login.html
 app.get('/login.html', (req, res) => {
