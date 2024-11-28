@@ -3,6 +3,16 @@ const path = require('path');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const SECRET_KEY = 'clave';
+const mariadb = require("mariadb");
+
+
+const pool = mariadb.createPool({
+  host: "localhost",
+  user: "root",
+  password: "1234",
+  database: "ecommerce",
+  connectionLimit: 5,
+});
 
 
 const app = express();
@@ -86,6 +96,24 @@ app.get('/user-cart', (req, res) => {
     res.sendFile(path.join(__dirname, 'data/user_cart/25801.json'));
 });
 
+
+
+app.get("/todo", async (req, res) => {
+    let conn;
+    try {
+      conn = await pool.getConnection();
+      const rows = await conn.query(
+        "SELECT ID,NOMBRE,DESCRIPCION,PRECIO,CANTIDAD_VENDIDOS FROM carrito "
+      );
+  
+      res.json(rows);
+    } catch (error) {
+      res.status(500).json({ message: "Se rompió el servidor" });
+    } finally {
+      if (conn) conn.release(); //release to pool
+    }
+  });
+  
 // Endpoint POST /login
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
@@ -96,6 +124,28 @@ app.post('/login', (req, res) => {
       res.status(401).json({ message: "Usuario o contraseña incorrectos" });
     }
   });
+  
+  // Middleware para interpretar JSON
+app.use(express.json());
+
+app.post("/info", async (req, res) => {
+  let conn;
+  try {
+    console.log("Datos recibidos en el POST:", req.body); // Para verificar qué datos llegan
+    conn = await pool.getConnection();
+    const response = await conn.query(
+      `INSERT INTO carrito (NOMBRE, DESCRIPCION, PRECIO, CANTIDAD_VENDIDOS) VALUES (?, ?, ?, ?)`,
+      [req.body.NOMBRE, req.body.DESCRIPCION, req.body.PRECIO, req.body.CANTIDAD_VENDIDOS]
+    );
+    res.json({ ID: parseInt(response.insertId), ...req.body });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: "Se rompió el servidor" });
+  } finally {
+    if (conn) conn.release(); // release to pool
+  }
+});
+
   
   const verifyToken = (req, res, next) => {
     const token = req.headers["access-token"];
