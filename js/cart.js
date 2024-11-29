@@ -229,6 +229,7 @@ buttonBuy.addEventListener("click", () => {
 
     // Si todo está correcto, procesar la compra
     alert("Compra realizada con éxito. ¡Gracias por tu compra!");
+    window.location.href="index.html"
 });
 
 
